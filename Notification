@@ -1,0 +1,46 @@
+public class Notification {
+    private String notificationID;
+    private String message;
+    private String timestamp;
+
+    public Notification(String notificationID, String message, String timestamp) {
+        this.notificationID = notificationID;
+        this.message = message;
+        this.timestamp = timestamp;
+    }
+
+    public void generateNotification(String message, String timestamp) {
+        this.message = message;
+        this.timestamp = timestamp;
+    }
+
+    public void deliverNotification(String userID, String preferredChannel) {
+        // Mock implementation for delivering notification
+        System.out.println("Notification sent to User ID: " + userID + " via " + preferredChannel + " with message: " + message);
+    }
+
+    // Getters and Setters
+    public String getNotificationID() {
+        return notificationID;
+    }
+
+    public void setNotificationID(String notificationID) {
+        this.notificationID = notificationID;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public String getTimestamp() {
+        return timestamp;
+    }
+
+    public void setTimestamp(String timestamp) {
+        this.timestamp = timestamp;
+    }
+}
