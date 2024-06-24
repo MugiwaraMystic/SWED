@@ -1,0 +1,48 @@
+import java.util.List;
+
+public class UpdateChecker {
+    private String checkerID;
+    private int checkInterval;
+
+    public UpdateChecker(String checkerID, int checkInterval) {
+        this.checkerID = checkerID;
+        this.checkInterval = checkInterval;
+    }
+
+    public void checkForUpdates(List<Subscription> subscriptions) {
+        for (Subscription subscription : subscriptions) {
+            // Implementation for checking updates
+            boolean isUpdated = checkWebsiteForUpdates(subscription.getWebsiteID());
+            if (isUpdated) {
+                notifyUser(subscription);
+            }
+        }
+    }
+
+    private boolean checkWebsiteForUpdates(String websiteID) {
+        // Mock implementation to check for website updates
+        return true; // Assume updates are found
+    }
+
+    public void notifyUser(Subscription subscription) {
+        Notification notification = new Notification("1", "Update found for " + subscription.getWebsiteID(), "2024-06-24 10:00:00");
+        notification.deliverNotification(subscription.getUserID(), subscription.getPreferredChannel());
+    }
+
+    // Getters and Setters
+    public String getCheckerID() {
+        return checkerID;
+    }
+
+    public void setCheckerID(String checkerID) {
+        this.checkerID = checkerID;
+    }
+
+    public int getCheckInterval() {
+        return checkInterval;
+    }
+
+    public void setCheckInterval(int checkInterval) {
+        this.checkInterval = checkInterval;
+    }
+}
